@@ -38,4 +38,4 @@ for data in data_list:
     bitcoin_list.append([date, fin, open, high, low, count, change])
 columns = ['날짜', '종가', '오픈', '고가', '저가', '거래량', '변동%']
 result = pd.DataFrame(bitcoin_list, columns = columns)
-result.to_excel('./files/Bitcoin.xlsx', index=False)
+result.to_excel('./files/Bitcoin_crawling.xlsx', index=False)
