@@ -3,7 +3,7 @@ from selenium import webdriver
 import time
 import pandas as pd
 
-driver = webdriver.Chrome('C:/Develops/project/chromedriver.exe')
+driver = webdriver.Chrome('/chromedriver.exe')
 driver.get('https://kr.investing.com/crypto/dogecoin/historical-data')
 time.sleep(1)
 weekly = driver.find_element_by_css_selector('#data_interval > option:nth-child(2)')
