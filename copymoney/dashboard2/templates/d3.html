@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<script>
+    $(document).ready(function(){
+        $('#getdata').click(function(){
+            startdt = $('input[name="startDt"]').val().replaceAll('-','');
+            enddt = $('input[name="endDt"]').val().replaceAll('-','');
+            //alert(startdt+' '+enddt);
+            $.ajax({
+                url:'d3s',
+                datatype:'JSON',
+                data:{startDt:startdt,endDt:enddt},
+                success:function(data){
+                    alert(data);
+                }
+            });
+        });
+    });
+</script>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Charts 3</h1>
+                    <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
+                        The charts below have been customized - for further customization options, please visit the <a
+                            target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
+                            documentation</a>.</p>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <input type="date" name="startDt">
+                        <input type="date" name="endDt">
+                        <button id="getdata">GET DATA</button>
+
+                        <div class="col-xl-8 col-lg-7">
+
+                            <!-- Area Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <div id="myAreaChart"></div>
+                                    </div>
+                                    <hr>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+<!-- /.container-fluid -->
