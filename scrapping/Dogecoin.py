@@ -39,3 +39,5 @@ for data in data_list:
 columns = ['날짜', '종가', '오픈', '고가', '저가', '거래량', '변동%']
 result = pd.DataFrame(bitcoin_list, columns = columns)
 result.to_excel('./files/Dogecoin_crawling.xlsx', index=False)
+driver.close()
+driver.quit()
