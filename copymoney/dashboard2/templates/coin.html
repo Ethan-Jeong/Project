@@ -4,11 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <title>COIN</title>
+    <h1>그래프</h1>
+    <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 </head>
 <body>
-<h1>그래프</h1>
-    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
-    <div id="container2" style="width: 550px; height: 400px; margin: 0 auto"></div>
-
+    <div>
+        <input type="file" id="inputExcelRead" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+    </div>
+    <div id="displayDiv">
+    </div>
+    <script>
+        function draw3(){
+            var chartdata = [];
+            $.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=BTC_ETH&start=1455699200&end=9999999999&period=14400', function (data) {
+                $.each(data, function(i, item){
+                    chartdata.push([item.date*1000, item.open, item.high, item.low, item.close]);
+                });
+            }).done(function(){
+                Highcharts.stockChart('container',{
+                    title: {
+                        text: 'ETH/BTC'
+                    },
+                    rangeSelector: {
+                        buttons: [
+                            {type: 'hour',count: 1,text: '1h'},
+                            {type: 'day',count: 1,text: '1d'},
+                            {type: 'all',count: 1,text: 'All'}
+                        ],
+                        selected: 2,
+                        inputEnabled: true
+                    },
+                    plotOptions: {
+                        candlestick: {
+                            downColor: 'blue',
+                            upColor: 'red'
+                        }
+                    },
+                    series: [{
+                        name: 'ETH/BTC',
+                        type: 'candlestick',
+                        data: chartdata,
+                        tooltip: {
+                            valueDecimals: 8
+                        }
+                    }]
+                });
+            });
+        }
+        draw3();
+    </script>
 </body>
 </html>
