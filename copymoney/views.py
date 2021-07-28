@@ -24,3 +24,6 @@ def d3(request):
     context = {'section':'d3.html'};
     return render(request, 'index.html',context);
 
+def coin(request):
+    data = Myanalysis.Project().coin();
+    return HttpResponse(json.dumps(data), content_type='application/json');
