@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title></title> 
+        <script type="text/javascript"> 
+
+            function showImage(){ 
+                var imnNum = "/static/img/doge.gif";
+                var objImg=document.getElementById("introimg");
+                objImg.src=imnNum;
+            }
+        </script>
+        <style>
+            #introimg{
+
+                width: 800px;
+                height: 800px;
+                border-radius: 70%;
+                position: absolute;top: 50%;left: 50%;margin:-150px 0 0 -150px
+
+            }
+
+            html{height: 100%;}
+
+            body{
+                 position: relative;width: 100%;height: 100%;
+                 background-image: url('/static/img/universe-gif.gif');
+                 cursor: url("/static/img/copymoney.cur"),auto;
+            }
+
+            div#doge{
+                position: absolute;
+                background-image: url('/static/img/doge.gif');
+                background-size: 550px;
+                z-index: -1;
+
+                /* 원 모양 만들기 */
+                width: 500px;
+                height: 500px;
+                border-radius: 70%;
+                border-color:gold;
+                border:100px;
+                left: 20%;
+                top: 20%;
+
+            }
+            img#flag{
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                z-index: 1;
+                left: 25%;
+                top: 30%;
+            }
+
+            img#mars{
+
+                width: 40%;
+                height: 80%;
+                position: absolute;
+                z-index: -2;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="doge"></div>
+        <img id="flag" src="/static/img/flag-cutout.png">
+        <img id="mars" src="/static/img/Mars.png">
+         <meta http-equiv="refresh" content="3;url=loading3">
+    </body> 
+</html>

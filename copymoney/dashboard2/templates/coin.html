@@ -3,73 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>COIN</title>
-
     <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
     <script type="text/javascript">
 
-    function getdata(){
-        $.ajax({
-            url:'coin',
-            datatype:'JSON',
-            success:function(data){
-                coin(data);
-            }
-        });
-    }
+    window.onload = function () {
 
-
-<!--    function coin(coin){-->
-<!--      var dps1 = []-->
-<!--      var dps2 = []-->
-<!--      var stockChart = new CanvasJS.StockChart("chartContainer",{-->
-<!--                                                    theme: "light2",-->
-<!--                                                    exportEnabled: true,-->
-<!--                                                    title:{-->
-<!--                                                      text:"StockChart with Date-Time Axis"-->
-<!--                                                    },-->
-<!--                                                    subtitles: [{-->
-<!--                                                      text: "Bitcoin Price (in USD)"-->
-<!--                                                    }],-->
-<!--                                                    charts: [{-->
-<!--                                                      axisX: {-->
-<!--                                                        crosshair: {-->
-<!--                                                          enabled: true,-->
-<!--                                                          snapToDataPoint: true-->
-<!--                                                        }-->
-<!--                                                      },-->
-<!--                                                      axisY: {-->
-<!--                                                        prefix: "$"-->
-<!--                                                      },-->
-<!--                                                      data: [{-->
-<!--                                                        type: "candlestick",-->
-<!--                                                        yValueFormatString: "$#,###.##",-->
-<!--                                                        dataPoints : coin-->
-<!--                                                      }]-->
-<!--                                                    }],-->
-<!--                                                    navigator: {-->
-<!--                                                      data: [{-->
-<!--                                                        dataPoints: dps2-->
-<!--                                                      }],-->
-<!--                                                      slider: {-->
-<!--                                                        minimum: new Date(2018, 06, 01),-->
-<!--                                                        maximum: new Date(2021, 07, 04)-->
-<!--                                                      }-->
-<!--                                                    }-->
-<!--                                                });-->
-<!--       stockChart.render();-->
-<!--    }-->
-
-    function coin(data) {
       var dps1 = [], dps2= [];
       var stockChart = new CanvasJS.StockChart("chartContainer",{
         theme: "light2",
         exportEnabled: true,
         title:{
-          text:"StockChart with Date-Time Axis"
+          text:"Bit-Coin Chart with Date-Time Axis"
         },
         subtitles: [{
           text: "Bitcoin Price (in USD)"
@@ -95,13 +42,12 @@
             dataPoints: dps2
           }],
           slider: {
-            minimum: new Date(2018, 04, 01),
-            maximum: new Date(2018, 06, 01)
+            minimum: new Date(2018, 01, 01),
+            maximum: new Date(2021, 12, 31)
           }
         }
       });
-
-      $.getJSON(data, function(data) {
+      $.getJSON("/static/resource/data.json", function(data) {
         for(var i = 0; i < data.length; i++){
           dps1.push({x: new Date(data[i].date), y: [Number(data[i].open), Number(data[i].high), Number(data[i].low), Number(data[i].close)]});
           dps2.push({x: new Date(data[i].date), y: Number(data[i].close)});
@@ -109,20 +55,10 @@
         stockChart.render();
       });
     }
-
-    $(document).ready(function(){
-        getdata();
-        }
-    );
-
-
     </script>
 </head>
 <body>
-    <h1>그래프</h1>
-
       <div id="chartContainer" style="height: 400px; min-width: 310px"></div>
-
 </body>
 </html>
 

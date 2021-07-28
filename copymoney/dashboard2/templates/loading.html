@@ -1,18 +1,164 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <script type="text/javascript">
-        function showImage(){
-            var imnNum = "/static/img/loading.gif";
-            var objImg=document.getElementById("introimg");
-            objImg.src=imnNum;
-        }
-    </script>
-</head>
-<body onload="showImage()">
-    <img id="introimg" border="0">
-    <meta http-equiv="refresh" content="3;url=index2">
-</body>
+<meta charset="utf-8">
+    <head> 
+        <title></title>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <style>
+                    
+            .layer_Mars {
+                
+                position: absolute;
+                left: 95%;
+                top: 1%;
+                align-content: center;
+                
+                animation: motion 0.5s linear 0s infinite alternate; margin-top: 0
+                
+            }
+            
+            .layer_Eearth {
+                
+                position: absolute;
 
+                left: 1%;
+                top: 60%;
+                z-index: -1;
+
+                align-content: center;
+                
+                animation: motion 1s linear 0s infinite alternate; margin-top: 0
+                
+            }
+
+            .layer_Mars .content {
+                display: inline-block;
+                vertical-align: middle
+            }
+            .layer_Mars .blank {
+                display: inline-block;
+                width: 0;
+                height: 100%;
+                vertical-align: middle
+            }
+            
+            .layer_Eearth .content {
+                display: inline-block;
+                vertical-align: middle
+            }
+            .layer_Eearth .blank {
+                display: inline-block;
+                width: 0;
+                height: 100%;
+                vertical-align: middle
+            }
+            
+            body,html{
+                
+               background-image: url('./static/img/universe-gif.gif');
+               cursor: url("./static/img/copymoney.cur"),auto;
+
+            }
+
+            @keyframes motion {
+                0% {margin-top: 0px;}
+                100% {margin-top: 10px;}
+            }
+
+
+
+            @keyframes raiseup{
+                0%{
+                    bottom: 27%;
+                    animation-timing-function: ease-out;
+                }
+
+                100%{
+                    bottom: 35%;
+                    animation-timing-function: ease-in;
+                }
+            }
+
+             div#aa{
+                position: absolute;
+                background-image: url('./static/img/LoadingImg.gif');
+                background-size: 100px;
+
+                /* 원 모양 만들기 */
+                width: 100px;
+                height: 100px;
+                border-radius: 70%;
+                border-color:gold;
+                border:100px;
+                bottom:300%;
+                left: 200px;
+
+                /* 아래에서 만든 애니메이션 적용하기 */
+                animation-name: raiseup;
+                animation-duration: 2s;
+            }
+
+        </style>
+        <style>
+
+            .rocket {
+
+                position: absolute;
+                visibility:hidden;
+
+                left: 1%;
+                top: 60%;
+
+                background-image: url('./static/img/dogerocket-cutout.png');
+                background-size: auto 100%;
+                /* width: 255px; height: 501px;  */
+                width: 100px; height: 200px;
+
+                transform: scaleX(-1);
+                transform: rotate(35deg);
+
+                animation-name: rocket;
+                animation-timing-function: ease;
+                animation-duration: 2s;
+                animation-delay: 2.2s;
+
+            }
+
+
+            @keyframes rocket {
+                from {left:25%; top:35%; visibility:visible; transform: rotate(35deg)}
+                to   {left:95%; top:5%; width: 5px; height: 10px; transform: rotate(70deg) }
+                }
+            }
+
+        </style>
+
+
+    </head>
+    <body>
+        <script>
+            var audio = new Audio('../static/img/rocket.wav');
+            setTimeout(function(){ audio.play(); }, 1200);
+        </script>
+
+
+        <div class="rocket"></div>
+        <div id="aa"></div>
+
+        <div class='layer_Mars'>
+        <span class="content">
+            <img src='./static/img/Mars.png' border="0" width='60px' align='right'>
+        </span>
+        <span class="blank"></span>
+        </div>
+
+        <div class='layer_Eearth'>
+        <span class="content">
+            <img src='./static/img/earth.png' border="0" width='500px' align='right'>
+        </span>
+        <span class="blank"></span>
+        </div>
+
+        <meta http-equiv="refresh" content="5;url=loading3">
+    </body> 
 </html>

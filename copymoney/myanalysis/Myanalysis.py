@@ -5,6 +5,8 @@ import pandas as pd;
 import numpy as np;
 import requests
 import sqlite3
+import json
+
 from django.http import HttpResponse
 
 # from config.settings import DATA_DIRS
@@ -19,6 +21,7 @@ class Project:
 
     # DB 파일 실제 경로 불러오기
     conn = sqlite3.connect('./db.sqlite3',check_same_thread=False)
+    # conn = sqlite3.connect('../db.sqlite3',check_same_thread=False)
     cur = conn.cursor()
 
     # 코인 데이터 가져오기
@@ -64,11 +67,8 @@ class Project:
             # }
             # dps2.append(dps1_list)
 
-
-        # print(dps1)
-        # print(dps2)
-        # cur.close()
-        # conn.close()
+        with open("../static/resource/coin.json", "w") as f:
+            json.dump(dps1, f)
 
         return HttpResponse(dps1);
         # return dps1;
@@ -142,7 +142,7 @@ class Project:
         return result;
 
 
-# if __name__ == '__main__':
-#     Project.coin('self');
+if __name__ == '__main__':
+    Project.coin('self');
     # Project.graphic('self');
     # Project.coin_graphic('self');
