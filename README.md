@@ -20,15 +20,16 @@
 
 ## 		✔️Project Manager
 
-###							👨‍💼 정다슬 ( Role : Project Managing & Machine Learing )		
+###							👨‍💼 정다슬 ( Role : Project Managing & Machine Learing )		<a href="https://github.com/Ethan-Jeong">Github</a> 🍀
 
 ##  		✔️Member
 
-### 						👨‍💼 김도관 ( Role : Front-End Developer - Web Server Publishing )	
+### 						👨‍💼 김도관 ( Role : Front-End Developer - Web Server Publishing )	<a href="https://github.com/power3247">Github</a> 🍀 
 
-### 						👩‍💼 김지현 ( Role : Front-End Developer - Web Server Publishing )
+### 						👩‍💼 김지현 ( Role : Front-End Developer - Web Server Publishing )  <a href="https://github.com/fonslucens">Github</a> 🍀
 
-### 						👩‍💼 신채원 ( Role : Back-End Developer - Web Scrapping )
+
+### 						👩‍💼 신채원 ( Role : Back-End Developer - Web Scrapping )  <a href="https://github.com/kaya1436">Github</a> 🍀
 
 
 
