@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title></title> 
+        <script type="text/javascript"> 
+
+        </script>
+        <style>
+           
+            .fade-in-box {
+              /* display: inline-block; */
+              /* background: yellow; */
+              padding: 10px;
+              animation: fadein 3s;
+              animation-delay: 3s;
+              -moz-animation: fadein 3s; /* Firefox */
+              -webkit-animation: fadein 3s; /* Safari and Chrome */
+              -o-animation: fadein 3s; /* Opera */
+              position: absolute;
+              text-align: center;
+              left: 50%;
+              top: 50%;
+              margin: -120px auto 0 -130px; /* value of top margin: height of the image divide by 2 (ie: 240 / 2), value of left margin: width of the image divide by 2 (ie: 260 / 2) */
+            
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @-moz-keyframes fadein { /* Firefox */
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @-webkit-keyframes fadein { /* Safari and Chrome */
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @-o-keyframes fadein { /* Opera */
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }            
+           
+        </style>
+    </head>
+    <body>
+
+        <audio autoplay src="./static/img/logo.wav"></audio>
+            <div class="fade-in-box">
+              <img src="./static/img/copymoney_logo-cutout.png">
+            </div>
+         <meta http-equiv="refresh" content="3;url=index2">
+    </body> 
+</html>

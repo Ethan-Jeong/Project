@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from dashboard2 import views
+from myanalysis import Myanalysis
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,6 @@ urlpatterns = [
     path('d1',views.d1, name='d1'),
     path('d2',views.d2, name='d2'),
     path('d3',views.d3, name='d3'),
+    path('coin',Myanalysis.coin, name='coin'),
+
 ]

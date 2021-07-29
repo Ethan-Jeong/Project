@@ -18,11 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 from dashboard2 import views
+from myanalysis import Myanalysis
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
-    path('check', views.check, name='check'),
+    path('loading', views.loading, name='index'),
     path('index2', views.index2, name='index2'),
-    path('index3', views.index3, name='index3'),
+    # path('loading2', views.loading2, name='loading2'),
+    path('loading3', views.loading3, name='loading3'),
+    path('coin', Myanalysis.Project.coin, name='coin'),
 ]
+
